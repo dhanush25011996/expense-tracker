@@ -1,10 +1,11 @@
 import { auth, provider } from "../../config/firebase-config";
 import { signInWithPopup } from "firebase/auth";
-import { useNavigate, Navigate } from "react-router-dom";
+import { useNavigate, Navigate, useHistory } from "react-router-dom";
 import { useGetUserInfo } from "../../hooks/useGetUserInfo";
 import "./styles.css";
 
 export const Auth = () => {
+  const history = useHistory();
   const navigate = useNavigate();
   const { isAuth } = useGetUserInfo();
 
@@ -17,7 +18,8 @@ export const Auth = () => {
       isAuth: true,
     };
     localStorage.setItem("auth", JSON.stringify(authInfo));
-    navigate("/expense-tracker");
+    // navigate("/expense-tracker");
+    history.push('/expense-tracker');
   };
 
   if(isAuth){
