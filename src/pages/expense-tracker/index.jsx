@@ -47,16 +47,16 @@ export const ExpenseTracker = () => {
           <h1>{name}'s Expense Tracker</h1>
           <div className="balance">
             <h3>Your Balance</h3>
-            {balance >= 0 ? <h2>${balance}</h2> : <h2>-${balance * -1}</h2>}
+            {balance >= 0 ? <h2>Rs.{balance}</h2> : <h2>-Rs.{balance * -1}</h2>}
           </div>
           <div className="summary">
             <div className="income">
               <h4>Income</h4>
-              <p>${income}</p>
+              <p>Rs.{income}</p>
             </div>
             <div className="expenses">
               <h4>Expenses</h4>
-              <p>${expenses}</p>
+              <p>Rs.{expenses}</p>
             </div>
           </div>
           <form className="add-transaction" onSubmit={onSubmit}>
@@ -107,14 +107,14 @@ export const ExpenseTracker = () => {
       <div className="transactions">
         <h3>Transactions</h3>
         <ul>
-          {transactions.map((transaction) => {
+          {transactions.map((transaction, i) => {
             const { description, transactionAmount, transactionType } =
               transaction;
             return (
-              <li>
+              <li key={i}>
                 <h4>{description}</h4>
                 <p>
-                  $ {transactionAmount} -{" "}
+                  Rs.{transactionAmount} {" "}
                   <label
                     style={{
                       color: transactionType === "expense" ? "red" : "green",
