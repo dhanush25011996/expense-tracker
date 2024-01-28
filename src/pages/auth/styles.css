@@ -74,7 +74,13 @@
     }
   
     .login-with-google-btn {
-      padding: 6px 12px 12px 32px; /* Further adjusted padding for even smaller screens */
-      font-size: 14px; /* Further reduced font size for even smaller screens */
-    }
+      padding: 9px 20px 12px 32px;
+      font-size: 14px;
+  }
+  .container{
+    display:contents;
+  }
+  .add-transaction{
+    display: contents;
+  }
   }
